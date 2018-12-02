@@ -71,7 +71,19 @@ namespace SandC
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e) // Send Data
         {
-
+            if (client.Connected)
+            {
+                STW.WriteLine(text_to_send);
+                this.RecievedMessagetextBox.Invoke(new MethodInvoker(delegate ()
+               {
+                   RecievedMessagetextBox.AppendText("Me : " + text_to_send + "\n");    // States user who is sending message and then then appends that message to it
+               }));
+            }
+            else
+            {
+                MessageBox.Show("Send Failed Good Sir!"); // Send message error
+            }
+            backgroundWorker2.CancelAsync();
         }
 
         private void Connectbutton_Click(object sender, EventArgs e) // Connect to Server via Client
