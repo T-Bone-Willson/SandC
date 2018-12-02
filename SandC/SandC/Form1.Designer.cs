@@ -32,7 +32,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.ServerIPtextBox = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ServerPorttextBox = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.StartServerbutton = new System.Windows.Forms.Button();
@@ -77,12 +77,12 @@
             this.ServerIPtextBox.Size = new System.Drawing.Size(100, 20);
             this.ServerIPtextBox.TabIndex = 3;
             // 
-            // textBox4
+            // ServerPorttextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(482, 49);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 4;
+            this.ServerPorttextBox.Location = new System.Drawing.Point(482, 49);
+            this.ServerPorttextBox.Name = "ServerPorttextBox";
+            this.ServerPorttextBox.Size = new System.Drawing.Size(100, 20);
+            this.ServerPorttextBox.TabIndex = 4;
             // 
             // textBox5
             // 
@@ -188,7 +188,7 @@
             this.Controls.Add(this.StartServerbutton);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.ServerPorttextBox);
             this.Controls.Add(this.ServerIPtextBox);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -206,7 +206,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox ServerIPtextBox;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ServerPorttextBox;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button StartServerbutton;
