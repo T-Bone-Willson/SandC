@@ -51,7 +51,22 @@ namespace SandC
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) // Recieve Data
         {
-
+            while (client.Connected)
+            {
+                try
+                {
+                    recieve = STR.ReadLine();
+                    this.RecievedMessagetextBox.Invoke(new MethodInvoker(delegate ()
+                    {
+                        RecievedMessagetextBox.AppendText("You : " + recieve + "\n");   // States user who is sending message and then then appends that message to it
+                }));
+                    recieve = ""; // recieve is whatever the typer types in.
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show(x.Message.ToString()); // Send error message if something is wrong.
+                }
+            }
         }
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e) // Send Data
