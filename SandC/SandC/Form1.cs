@@ -38,7 +38,7 @@ namespace SandC
 
         private void StartServerbutton_Click(object sender, EventArgs e) // Start Server Functionality
         {
-            TcpListener listener = new TcpListener(IPAddress.Any, int.Parse(ServerIPtextBox.Text)); //Turns Port Int number into String
+            TcpListener listener = new TcpListener(IPAddress.Any, int.Parse(ServerPorttextBox.Text)); //Turns Port Int number into String
             listener.Start();
             client = listener.AcceptTcpClient(); // Tells the client to accept the TCP connection
             STR = new StreamReader(client.GetStream());
