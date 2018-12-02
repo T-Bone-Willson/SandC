@@ -30,19 +30,21 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.RecievedMessagetextBox = new System.Windows.Forms.TextBox();
             this.ServerIPtextBox = new System.Windows.Forms.TextBox();
             this.ServerPorttextBox = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.ClientIPtextBox = new System.Windows.Forms.TextBox();
+            this.ClientPorttextBox = new System.Windows.Forms.TextBox();
             this.StartServerbutton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Connectbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // button1
@@ -62,13 +64,13 @@
             this.textBox1.Size = new System.Drawing.Size(573, 55);
             this.textBox1.TabIndex = 1;
             // 
-            // textBox2
+            // RecievedMessagetextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 227);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(711, 137);
-            this.textBox2.TabIndex = 2;
+            this.RecievedMessagetextBox.Location = new System.Drawing.Point(12, 227);
+            this.RecievedMessagetextBox.Multiline = true;
+            this.RecievedMessagetextBox.Name = "RecievedMessagetextBox";
+            this.RecievedMessagetextBox.Size = new System.Drawing.Size(711, 137);
+            this.RecievedMessagetextBox.TabIndex = 2;
             // 
             // ServerIPtextBox
             // 
@@ -84,19 +86,19 @@
             this.ServerPorttextBox.Size = new System.Drawing.Size(100, 20);
             this.ServerPorttextBox.TabIndex = 4;
             // 
-            // textBox5
+            // ClientIPtextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(165, 143);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 5;
+            this.ClientIPtextBox.Location = new System.Drawing.Point(165, 143);
+            this.ClientIPtextBox.Name = "ClientIPtextBox";
+            this.ClientIPtextBox.Size = new System.Drawing.Size(100, 20);
+            this.ClientIPtextBox.TabIndex = 5;
             // 
-            // textBox6
+            // ClientPorttextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(482, 143);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 6;
+            this.ClientPorttextBox.Location = new System.Drawing.Point(482, 143);
+            this.ClientPorttextBox.Name = "ClientPorttextBox";
+            this.ClientPorttextBox.Size = new System.Drawing.Size(100, 20);
+            this.ClientPorttextBox.TabIndex = 6;
             // 
             // StartServerbutton
             // 
@@ -108,14 +110,15 @@
             this.StartServerbutton.UseVisualStyleBackColor = true;
             this.StartServerbutton.Click += new System.EventHandler(this.StartServerbutton_Click);
             // 
-            // button3
+            // Connectbutton
             // 
-            this.button3.Location = new System.Drawing.Point(12, 169);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(711, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Connect";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Connectbutton.Location = new System.Drawing.Point(12, 169);
+            this.Connectbutton.Name = "Connectbutton";
+            this.Connectbutton.Size = new System.Drawing.Size(711, 23);
+            this.Connectbutton.TabIndex = 8;
+            this.Connectbutton.Text = "Connect";
+            this.Connectbutton.UseVisualStyleBackColor = true;
+            this.Connectbutton.Click += new System.EventHandler(this.Connectbutton_Click);
             // 
             // label1
             // 
@@ -173,6 +176,14 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Port";
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // backgroundWorker2
+            // 
+            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,13 +195,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Connectbutton);
             this.Controls.Add(this.StartServerbutton);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.ClientPorttextBox);
+            this.Controls.Add(this.ClientIPtextBox);
             this.Controls.Add(this.ServerPorttextBox);
             this.Controls.Add(this.ServerIPtextBox);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.RecievedMessagetextBox);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -204,19 +215,21 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox RecievedMessagetextBox;
         private System.Windows.Forms.TextBox ServerIPtextBox;
         private System.Windows.Forms.TextBox ServerPorttextBox;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox ClientIPtextBox;
+        private System.Windows.Forms.TextBox ClientPorttextBox;
         private System.Windows.Forms.Button StartServerbutton;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Connectbutton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
     }
 }
 
