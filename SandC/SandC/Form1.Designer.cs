@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Sendbutton = new System.Windows.Forms.Button();
+            this.SendMessagetextBox = new System.Windows.Forms.TextBox();
             this.RecievedMessagetextBox = new System.Windows.Forms.TextBox();
             this.ServerIPtextBox = new System.Windows.Forms.TextBox();
             this.ServerPorttextBox = new System.Windows.Forms.TextBox();
@@ -47,22 +47,23 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
-            // button1
+            // Sendbutton
             // 
-            this.button1.Location = new System.Drawing.Point(609, 370);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 55);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Send";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Sendbutton.Location = new System.Drawing.Point(609, 370);
+            this.Sendbutton.Name = "Sendbutton";
+            this.Sendbutton.Size = new System.Drawing.Size(114, 55);
+            this.Sendbutton.TabIndex = 0;
+            this.Sendbutton.Text = "Send";
+            this.Sendbutton.UseVisualStyleBackColor = true;
+            this.Sendbutton.Click += new System.EventHandler(this.Sendbutton_Click);
             // 
-            // textBox1
+            // SendMessagetextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 370);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(573, 55);
-            this.textBox1.TabIndex = 1;
+            this.SendMessagetextBox.Location = new System.Drawing.Point(12, 370);
+            this.SendMessagetextBox.Multiline = true;
+            this.SendMessagetextBox.Name = "SendMessagetextBox";
+            this.SendMessagetextBox.Size = new System.Drawing.Size(573, 55);
+            this.SendMessagetextBox.TabIndex = 1;
             // 
             // RecievedMessagetextBox
             // 
@@ -202,8 +203,8 @@
             this.Controls.Add(this.ServerPorttextBox);
             this.Controls.Add(this.ServerIPtextBox);
             this.Controls.Add(this.RecievedMessagetextBox);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SendMessagetextBox);
+            this.Controls.Add(this.Sendbutton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -213,8 +214,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button Sendbutton;
+        private System.Windows.Forms.TextBox SendMessagetextBox;
         private System.Windows.Forms.TextBox RecievedMessagetextBox;
         private System.Windows.Forms.TextBox ServerIPtextBox;
         private System.Windows.Forms.TextBox ServerPorttextBox;

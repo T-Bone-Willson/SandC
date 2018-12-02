@@ -83,5 +83,15 @@ namespace SandC
                 MessageBox.Show(x.Message.ToString());
             }
         }
+
+        private void Sendbutton_Click(object sender, EventArgs e)   //Send Button
+        {
+            if (SendMessagetextBox.Text != "")
+            {
+                text_to_send = SendMessagetextBox.Text;
+                backgroundWorker2.RunWorkerAsync();
+            }
+            SendMessagetextBox.Text = ""; // Send Message within the text box
+        }
     }
 }
