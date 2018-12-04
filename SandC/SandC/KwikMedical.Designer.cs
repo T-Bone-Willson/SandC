@@ -1,6 +1,6 @@
 ﻿namespace SandC
 {
-    partial class Form1
+    partial class KwikMedical
     {
         /// <summary>
         /// Required designer variable.
@@ -217,7 +217,7 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
-            // Form1
+            // KwikMedical
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -227,8 +227,9 @@
             this.Controls.Add(this.RecievedMessagetextBox);
             this.Controls.Add(this.SendMessagetextBox);
             this.Controls.Add(this.Sendbutton);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "KwikMedical";
+            this.Text = "KwikMedical";
+            this.Load += new System.EventHandler(this.KwikMedical_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

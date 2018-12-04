@@ -13,7 +13,7 @@ using System.IO;
 
 namespace SandC
 {
-    public partial class Form1 : Form
+    public partial class KwikMedical : Form
     {
         // Data Types
         private TcpClient client;
@@ -22,7 +22,7 @@ namespace SandC
         public string recieve;
         public String text_to_send;
 
-        public Form1()
+        public KwikMedical()
         {
             InitializeComponent();
 
@@ -119,6 +119,11 @@ namespace SandC
                 backgroundWorker2.RunWorkerAsync();
             }
             SendMessagetextBox.Text = ""; // Send Message within the text box
+        }
+
+        private void KwikMedical_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

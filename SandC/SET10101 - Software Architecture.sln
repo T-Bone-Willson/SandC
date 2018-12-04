@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandC", "SandC\SandC.csproj", "{E7D8203F-FAAE-48C8-91EB-4E3F06C1F246}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SET10101 - Software Architecture", "SandC\SET10101 - Software Architecture.csproj", "{E7D8203F-FAAE-48C8-91EB-4E3F06C1F246}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
