@@ -58,7 +58,7 @@ namespace SandC
                     recieve = STR.ReadLine();
                     this.RecievedMessagetextBox.Invoke(new MethodInvoker(delegate ()
                     {
-                        RecievedMessagetextBox.AppendText("You : " + recieve + "\n");   // States user who is sending message and then then appends that message to it
+                        RecievedMessagetextBox.AppendText("Regional Hospital : " + recieve + "\n");   // States user who is sending message and then then appends that message to it
                 }));
                     recieve = ""; // recieve is whatever the typer types in.
                 }
@@ -76,7 +76,7 @@ namespace SandC
                 STW.WriteLine(text_to_send);
                 this.RecievedMessagetextBox.Invoke(new MethodInvoker(delegate ()
                {
-                   RecievedMessagetextBox.AppendText("Me : " + text_to_send + "\n");    // States user who is sending message and then then appends that message to it
+                   RecievedMessagetextBox.AppendText("Ambulance Team : " + text_to_send + "\n");    // States user who is sending message and then then appends that message to it
                }));
             }
             else
@@ -96,7 +96,7 @@ namespace SandC
                 client.Connect(IP_End);
                 if (client.Connected)
                 {
-                    RecievedMessagetextBox.AppendText("CONNECTED TO SERVER" + "\n"); // Displays This message when Client connects to Server
+                    RecievedMessagetextBox.AppendText("CONNECTED TO KWIKMEDICAL SERVER" + "\n"); // Displays This message when Client connects to Server
                     STW = new StreamWriter(client.GetStream());
                     STR = new StreamReader(client.GetStream());
                     STW.AutoFlush = true;
